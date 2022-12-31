@@ -1,10 +1,7 @@
 call plug#begin('~/.config/nvim/plugins')
 Plug 'sheerun/vim-polyglot'
-let g:vim_svelte_plugin_use_typescript = 1
 
-Plug 'pantharshit00/vim-prisma'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'preservim/nerdtree'
 
@@ -12,15 +9,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 set runtimepath+=~/.fzf
 
-Plug 'joshdick/onedark.vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-let g:airline_powerline_fonts = 1
 
 call plug#end()
 
@@ -31,7 +27,7 @@ endif
 set encoding=utf-8
 
 set background=dark
-colorscheme onedark
+colorscheme tokyonight-night
 syntax on
 
 set hidden
@@ -59,6 +55,9 @@ set noshowmode
 
 set incsearch
 set hlsearch
+
+set splitright
+set splitbelow
 
 nnoremap <silent> <C-p> :Files<CR>
 
@@ -134,3 +133,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+lua << END
+require('lualine').setup()
+END
