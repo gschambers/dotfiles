@@ -4,10 +4,12 @@ return {
 
   config = function()
     -- Go to defintion for symbol under cursor
-    vim.keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = true })
+    vim.keymap.set("n", "gd", "<Plug>(coc-definition)", { desc = "Go to definition", silent = true })
+    vim.keymap.set("n", "<leader>cd", "<Plug>(coc-definition)", { desc = "Go to definition", silent = true })
 
     -- List references for symbol under cursor
-    vim.keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })
+    vim.keymap.set("n", "gr", "<Plug>(coc-references)", { desc = "Find references", silent = true })
+    vim.keymap.set("n", "<leader>cr", "<Plug>(coc-references)", { desc = "Find references", silent = true })
 
     -- Show floating definition for symbol under cursor
     function _G.show_docs()
@@ -25,7 +27,7 @@ return {
     vim.keymap.set("n", "K", "<CMD>lua _G.show_docs()<CR>", { noremap = true, silent = true })
 
     -- Rename symbol under cursor
-    vim.keymap.set("n", "<leader>rn", "<Plug>(coc-rename)", {})
+    vim.keymap.set("n", "<leader>cn", "<Plug>(coc-rename)", { desc = "Rename", silent = true })
 
     -- Confirm completion with <CR>
     vim.keymap.set("i", "<CR>", function()

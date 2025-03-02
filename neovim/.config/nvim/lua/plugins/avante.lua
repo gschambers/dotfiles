@@ -1,7 +1,7 @@
 return {
   "yetone/avante.nvim",
 
-  enabled = false,
+  enabled = true,
 
   event = "VeryLazy",
   lazy = false,
@@ -17,8 +17,9 @@ return {
 
   opts = {
     provider = "claude",
-    claude = {
-      model = "claude-3-5-haiku-20241022",
-    },
+
+    behaviour = {
+      auto_set_keymaps = true,
+    }, 
   },
 }

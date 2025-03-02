@@ -1,4 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "echasnovski/mini.icons" }
+  dependencies = { "echasnovski/mini.icons" },
+  opts = {
+    globalstatus = false,
+  },
 }

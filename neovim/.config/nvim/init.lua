@@ -69,4 +69,13 @@ vim.opt.splitright = true
 
 vim.opt.splitbelow = true
 
+vim.opt.laststatus = 3
+
+require("which-key").add({
+  { "<leader>a", group = "AI" },
+  { "<leader>c", group = "Code" },
+  { "<leader>f", group = "Files" },
+  { "<leader>g", group = "Git" },
+})
+
 require("lualine").setup()

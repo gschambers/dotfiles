@@ -6,15 +6,24 @@ return {
   opts = {
     dashboard = { enabled = true },
     input = { enabled = true },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+
+      win = {
+        input = {
+          keys = {
+            ["<ESC>"] = { "close", mode = { "i", "n" } },
+          },
+        },
+      },
+    },
   },
 
   keys = {
     -- Files
-    { "<C-n>", function() Snacks.explorer() end, desc = "File explorer" },
-    { "<C-p>", function() Snacks.picker.files() end, desc = "Find files" },
-
-    -- Search
-    { "<leader>sg", function() Snacks.picker.grep() end, desc = ""}
+    { "<leader>fe", function() Snacks.explorer() end, desc = "File explorer" },
+    { "<leader>ff", function() Snacks.picker.files({ hidden = true }) end, desc = "Find files" },
+    { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep files" },
+    { "<C-p>", function() Snacks.picker.files({ hidden = true }) end, desc = "Find files" },
   },
 }
