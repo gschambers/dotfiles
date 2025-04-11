@@ -1,7 +1,7 @@
 return {
   "yetone/avante.nvim",
 
-  enabled = true,
+  enabled = false,
 
   event = "VeryLazy",
   lazy = false,
@@ -11,6 +11,14 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
+    {
+      -- Make sure to set this up properly if you have lazy=true
+      'MeanderingProgrammer/render-markdown.nvim',
+      opts = {
+        file_types = { "markdown", "Avante" },
+      },
+      ft = { "markdown", "Avante" },
+    },
   },
 
   build = "make",
@@ -19,7 +27,8 @@ return {
     provider = "claude",
 
     behaviour = {
+      auto_set_highlight_group = true,
       auto_set_keymaps = true,
-    }, 
+    },
   },
 }

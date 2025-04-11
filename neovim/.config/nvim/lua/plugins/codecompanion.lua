@@ -3,12 +3,12 @@ return {
 
   enabled = false,
 
-  config = true,
-
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
+
+  config = true,
 
   opts = {
     strategies = {
@@ -17,8 +17,8 @@ return {
       },
 
       inline = {
-        adapter = "anthropic"
-      }
+        adapter = "anthropic",
+      },
     },
   },
 }
