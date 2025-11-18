@@ -21,7 +21,8 @@ return {
     },
 
     sources = {
-      default = { "lsp", "path", "buffer", "copilot", "supermaven" },
+      -- default = { "lsp", "path", "buffer", "copilot", "supermaven" },
+      default = { "lsp", "path", "buffer" },
 
       providers = {
         copilot = {
