@@ -23,8 +23,8 @@ return {
   keys = {
     -- Project
     { "<leader>fe", function() Snacks.explorer({ hidden = true }) end,     desc = "File explorer" },
-    { "<leader>ff", function() Snacks.picker.files({ hidden = true }) end, desc = "Find files" },
-    { "<C-p>",      function() Snacks.picker.files({ hidden = true }) end, desc = "Find files" },
+    { "<leader>ff", function() Snacks.picker.files({ hidden = true, ignored = false }) end, desc = "Find files" },
+    { "<C-p>",      function() Snacks.picker.files({ hidden = true, ignored = false }) end, desc = "Find files" },
     { "<leader>fg", function() Snacks.picker.grep() end,                   desc = "Grep files" },
     { "<leader>fw", function() Snacks.picker.grep_word() end,              desc = "Grep word" },
     { "<leader>ft", function() Snacks.picker.todo_comments() end,          desc = "Find TODO comments" },
