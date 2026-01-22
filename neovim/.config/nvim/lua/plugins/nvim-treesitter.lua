@@ -4,14 +4,21 @@ return {
   build = ":TSUpdate",
 
   config = function()
-    local configs = require("nvim-treesitter.configs")
+    local treesitter = require("nvim-treesitter")
+    treesitter.setup()
+    treesitter.install {
+      "css",
+      "html",
+      "javascript",
+      "json",
+      "markdown",
+      "regex",
+      "starlark",
+      "typescript",
+    }
 
-    configs.setup({
-      auto_install = true,
-
-      sync_install = true,
-
-      ensure_installed = {
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = {
         "css",
         "html",
         "javascript",
@@ -22,11 +29,10 @@ return {
         "typescript",
       },
 
-      ignore_install = {},
-
-      highlight = { enable = true },
-
-      indent = { enable = true },
+      callback = function()
+        vim.treesitter.start()
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end
     })
   end
 }
